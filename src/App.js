@@ -23,7 +23,6 @@ function App() {
   useEffect(() => {
     const value = localStorage.getItem('passwords')
     if (value) setPrePassword(JSON.parse(value))
-    console.log(value)
   }, [])
 
   const getValue = () => {
@@ -60,7 +59,6 @@ function App() {
       if (password) localPasswords.unshift(password)
       localStorage.setItem('passwords', JSON.stringify(localPasswords))
       setPassword(passwordStr)
-      console.log(localPasswords)
       setPrePassword(localPasswords)
     }
 
@@ -111,7 +109,7 @@ function App() {
             </div>
             <div className="body-parts">
               <label for="symbol" id="pw-symbol">Contains Symbols</label>
-              <input type="checkbox" id="symbol" onChange={(e) => setState({ ...state, symbol: e.target.value })} />
+              <input type="checkbox" id="symbol" onChange={(e) => setState({ ...state, symbol: e.target.checked })} />
             </div>
           </div>
           <div className="footer">
